@@ -40,14 +40,14 @@ const DisplayForm = ({ setPermise }) => {
 	}
 
 	return (
-		<div className="max-w-screen-sm my-0 mx-auto py-6 ">
+		<div className="max-w-screen-sm my-0 mx-auto">
 			<form
 				onSubmit={handleSubmit}
 				className="flex flex-col justify-evenly items-center my-0 mx-auto"
 			>
-				<div className="bg-white w-full my-0 mx-auto rounded-md">
-					<div className="p-4">
-						<h2>Ejemplo Google Forms</h2>
+				<div className="bg-white w-full my-0 mx-auto rounded-md text-center">
+					<div className="p-4 text-base md:text-2xl font-bold">
+						<h2>The Form</h2>
 					</div>
 				</div>
 

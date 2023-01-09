@@ -31,10 +31,10 @@ const DisplayAnswers = () => {
 	}
 
 	return (
-		<div className="max-w-screen-sm my-0 mx-auto py-6">
-			<div className="bg-white w-full my-0 mx-auto rounded-md">
-				<div className="p-4">
-					<h2>Respuestas de Google Forms</h2>
+		<div className="max-w-screen-sm my-0 mx-auto">
+			<div className="bg-white w-full my-0 mx-auto rounded-md text-center">
+				<div className="p-4 text-base md:text-2xl font-bold">
+					<h2>Answer Chest</h2>
 				</div>
 			</div>
 			{answers.map((ans) => (
@@ -43,7 +43,10 @@ const DisplayAnswers = () => {
 					className="bg-white w-full mt-5 rounded-md flex justify-evenly items-center flex-col overflow-hidden"
 				>
 					<div className="bg-red-200 w-full text-center">
-						<h3 className="p-4">Form Answer by {ans.full_name}</h3>
+						<h3 className="p-4">
+							Answer from
+							<span className="font-semibold"> {ans.full_name}</span>
+						</h3>
 					</div>
 
 					<span className="w-full h-px bg-gray-400 "></span>
