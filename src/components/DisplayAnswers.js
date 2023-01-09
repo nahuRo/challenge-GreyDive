@@ -69,7 +69,7 @@ const DisplayAnswers = () => {
 						<div className="p-4 flex flex-col ">
 							<div className="flex items-center ">
 								<MdLocationOn className="text-2xl" />
-								<h4 className="pl-2">{ans.origin_country}</h4>
+								<h4 className="pl-2">{ans.country_of_origin}</h4>
 							</div>
 						</div>
 					</div>
