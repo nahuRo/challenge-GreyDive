@@ -11,7 +11,6 @@ import "../App.css";
 const DisplayAnswers = () => {
 	const [answers, setAnswers] = useState([]);
 
-	console.log(answers);
 	useEffect(() => {
 		onSnapshot(collRef, (snapshot) => {
 			let myForms = [];
@@ -24,8 +23,8 @@ const DisplayAnswers = () => {
 
 	if (answers.length === 0) {
 		return (
-			<div className="flex justify-center items-center min-h-screen flex-col">
-				<span className="loader"></span>
+			<div className="flex justify-center items-center flex-col min-h-screen ">
+				<span className="get_loader"></span>
 				<h1 className="text-4xl font-bold mt-6 text-slate-700">Loading...</h1>
 			</div>
 		);

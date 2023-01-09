@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { FcDocument } from "react-icons/fc";
 
@@ -7,7 +7,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 
-const Header = () => {
+const Header = ({ permise }) => {
+	console.log("Header", permise);
+
 	let pageButtonActive = {
 		borderBottom: "1px solid #000",
 	};
@@ -16,13 +18,23 @@ const Header = () => {
 		<div className="bg-white">
 			<div className="flex justify-between">
 				<div className="flex gap-x-12 items-center p-4">
-					<FcDocument className="w-12 h-12" />
-					<BsFolder className="w-5 h-5" />
-					<BsStar className="w-5 h-5" />
+					<Link to={"/"}>
+						<FcDocument className="w-12 h-12" />
+					</Link>
+					<button>
+						<BsFolder className="w-5 h-5" />
+					</button>
+					<button>
+						<BsStar className="w-5 h-5" />
+					</button>
 				</div>
 				<div className="flex gap-x-12 items-center p-4">
-					<BsPalette className="w-5 h-5" />
-					<BsThreeDotsVertical className="w-5 h-5" />
+					<button>
+						<BsPalette className="w-5 h-5" />
+					</button>
+					<button>
+						<BsThreeDotsVertical className="w-5 h-5" />
+					</button>
 				</div>
 			</div>
 			<div className="flex justify-center items-center">
@@ -33,13 +45,15 @@ const Header = () => {
 				>
 					Pregunta
 				</NavLink>
-				<NavLink
-					className="p-1"
-					to={"/answer"}
-					style={({ isActive }) => (isActive ? pageButtonActive : undefined)}
-				>
-					Respuestas
-				</NavLink>
+				{permise && (
+					<NavLink
+						className="p-1"
+						to={"/answer"}
+						style={({ isActive }) => (isActive ? pageButtonActive : undefined)}
+					>
+						Respuestas
+					</NavLink>
+				)}
 			</div>
 		</div>
 	);

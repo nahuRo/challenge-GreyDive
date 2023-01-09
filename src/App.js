@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/Header";
 
@@ -9,18 +10,28 @@ import DisplayAnswers from "./components/DisplayAnswers";
 import Footer from "./components/Footer";
 
 function App() {
+	const [permise, setPermise] = useState(false);
+	console.log("app", permise);
 	return (
 		<div>
 			<BrowserRouter>
-				<Header />
-				<div className="bg-slate-100 min-h-screen">
+				<Header permise={permise} />
+				<div className="bg-slate-100 min-h-screen relative">
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/question" element={<DisplayForm />} />
-						<Route path="/answer" element={<DisplayAnswers />} />
+						<Route
+							path="/question"
+							element={<DisplayForm setPermise={setPermise} />}
+						/>
+						<Route
+							path="/answer"
+							element={
+								!permise ? <Navigate replace to={"/"} /> : <DisplayAnswers />
+							}
+						/>
 					</Routes>
-					<Footer />
 				</div>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
