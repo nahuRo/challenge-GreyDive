@@ -1,36 +1,27 @@
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { FcDocument } from "react-icons/fc";
+import Header from "./components/Header";
 
-import { BsPalette } from "react-icons/bs";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { BsFolder } from "react-icons/bs";
-import { BsStar } from "react-icons/bs";
+import Home from "./components/Home";
+import DisplayForm from "./components/DisplayForm";
+import DisplayAnswers from "./components/DisplayAnswers";
+
+import Footer from "./components/Footer";
 
 function App() {
 	return (
 		<div>
-			<div className="bg-white">
-				<div className="flex justify-between">
-					<div className="flex gap-x-12 items-center p-4">
-						<FcDocument className="w-12 h-12" />
-						<BsFolder className="w-5 h-5" />
-						<BsStar className="w-5 h-5" />
-					</div>
-					<div className="flex gap-x-12 items-center p-4">
-						<BsPalette className="w-5 h-5" />
-						<BsThreeDotsVertical className="w-5 h-5" />
-					</div>
+			<BrowserRouter>
+				<Header />
+				<div className="bg-slate-100 min-h-screen">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/question" element={<DisplayForm />} />
+						<Route path="/answer" element={<DisplayAnswers />} />
+					</Routes>
+					<Footer />
 				</div>
-				<div className="flex justify-center items-center">
-					<button className="p-1 border-b-2 border-red-300">Preguntas</button>
-					<button className="p-1 border-b-2 border-red-300">Respuestas</button>
-					<button className="p-1 border-b-2 border-red-300">Configuracion</button>
-				</div>
-			</div>
-			<div className="bg-red-300 min-h-screen">
-				<div className="bg-red-800 max-w-screen-lg  my-0 mx-auto">Main</div>
-			</div>
+			</BrowserRouter>
 		</div>
 	);
 }
