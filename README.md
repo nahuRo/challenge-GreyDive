@@ -18,7 +18,7 @@ Agustín Rodriguez 🤓
 👉 Firebase
 👉 Tailwind
 
-## Como iniciar
+## Descripción del Proyecto
 
 Una vez en la aplicación podemos ver:
 
