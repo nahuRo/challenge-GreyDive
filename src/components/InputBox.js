@@ -5,7 +5,7 @@ const InputBox = ({ type, label, name, required, options }) => {
 		return (
 			<div className="bg-white w-full my-2 rounded-md ">
 				<div className="p-3 md:p-5">
-					<select className="w-full" name={name}>
+					<select className="w-full bg-transparent" name={name}>
 						{options.map((opt) => (
 							<option key={opt.value}>{opt.label}</option>
 						))}
